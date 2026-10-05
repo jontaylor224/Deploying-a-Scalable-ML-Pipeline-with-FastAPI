@@ -4,6 +4,7 @@ from sklearn.ensemble import RandomForestClassifier
 from ml.data import apply_label
 from ml.model import train_model, compute_model_metrics
 
+
 # implement the first test. Change the function name and input as needed
 def test_apply_label():
     """
@@ -42,4 +43,3 @@ def test_compute_model_metrics():
     assert precision == pytest.approx(1.0)
     assert recall == pytest.approx(0.5)
     assert fbeta == pytest.approx(0.6666667)
-    

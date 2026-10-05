@@ -16,7 +16,7 @@ from ml.model import (
 project_path = os.path.dirname(os.path.abspath(__file__))
 data_path = os.path.join(project_path, "data", "census.csv")
 print(data_path)
-data = pd.read_csv(data_path) # your code here
+data = pd.read_csv(data_path)
 
 # split the provided data to have a train dataset and a test dataset
 # Optional enhancement, use K-fold cross validation instead of a train-test split.
@@ -41,10 +41,6 @@ cat_features = [
 
 # use the process_data function provided to process the data.
 X_train, y_train, encoder, lb = process_data(
-    # your code here
-    # use the train dataset 
-    # use training=True
-    # do not need to pass encoder and lb as input
     train,
     categorical_features=cat_features,
     label="salary",
@@ -61,7 +57,7 @@ X_test, y_test, _, _ = process_data(
 )
 
 # use the train_model function to train the model on the training dataset
-model = train_model(X_train, y_train) # your code here
+model = train_model(X_train, y_train)
 
 os.makedirs(os.path.join(project_path, 'model'), exist_ok=True)
 
@@ -74,10 +70,10 @@ save_model(encoder, encoder_path)
 # load the model
 model = load_model(
     model_path
-) 
+)
 
 # use the inference function to run the model inferences on the test dataset.
-preds = inference(model, X_test) # your code here
+preds = inference(model, X_test)
 
 # Calculate and print the metrics
 p, r, fb = compute_model_metrics(y_test, preds)
@@ -92,8 +88,6 @@ with open(slice_output_path, 'w') as f:
         for slicevalue in sorted(test[col].unique()):
             count = test[test[col] == slicevalue].shape[0]
             p, r, fb = performance_on_categorical_slice(
-                # your code here
-                # use test, col and slicevalue as part of the input
                 test,
                 col,
                 slicevalue,
